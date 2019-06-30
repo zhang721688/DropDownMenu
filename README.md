@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/dongjunkun/DropDownMenu.svg)](https://jitpack.io/#dongjunkun/DropDownMenu)
+[[图片上传失败...(image-db48-1561867436721)]](https://jitpack.io/#dongjunkun/DropDownMenu)
 
 ## 简介
 一个实用的多条件筛选菜单，在很多App上都能看到这个效果，如美团，爱奇艺电影票等
@@ -30,14 +30,14 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.dongjunkun:DropDownMenu:1.0.4'
+    compile 'com.zxn.dropdown:dropdown-menu:1.0.0'
 }
 ```
 
 ## 使用
 添加DropDownMenu 到你的布局文件，如下
 ```
-<com.yyydjk.library.DropDownMenu
+<com.zxn.dropdown.DropDownMenu
     android:id="@+id/dropDownMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -65,4 +65,4 @@ mDropDownMenu.setDropDownMenu(tabs, popupViews, contentView);
 > 建议拷贝代码到项目中使用，拷贝DropDownMenu.java 以及res下的所有文件即可
 
 ## 关于我
-简书[dongjunkun](http://www.jianshu.com/users/f07458c1a8f3/latest_articles)
+简书[zxn]([https://www.jianshu.com/u/c1623b7d1014](https://www.jianshu.com/u/c1623b7d1014))

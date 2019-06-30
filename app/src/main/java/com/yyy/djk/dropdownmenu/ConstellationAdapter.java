@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 
 public class ConstellationAdapter extends BaseAdapter {
@@ -73,11 +73,11 @@ public class ConstellationAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        @InjectView(R.id.text)
+        @BindView(R.id.text)
         TextView mText;
 
         ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }
