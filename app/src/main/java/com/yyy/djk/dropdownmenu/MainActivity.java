@@ -11,7 +11,7 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.zxn.dropdown.DropDownMenu;
+import com.zxn.dropdown.DropdownMenu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +22,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.dropDownMenu) DropDownMenu mDropDownMenu;
+    @BindView(R.id.dropDownMenu)
+    DropdownMenu mDropDownMenu;
     private String headers[] = {"城市", "年龄", "性别", "星座"};
     private List<View> popupViews = new ArrayList<>();
 

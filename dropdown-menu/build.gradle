@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 11
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -18,17 +18,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 }
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-def siteUrl = 'https://github.com/zhang721688/MyExpandLayout'//TODO:修改仓库MyExpandLayout
-def gitUrl = 'https://github.com/zhang721688/MyExpandLayout.git'//TODO:修改仓库MyExpandLayout
-def libName = "expand-layout"//TODO:修改依赖expand-layout
-group = "com.zxn.expand"//TODO:修改包名com.zxn.expand
+def siteUrl = 'https://github.com/zhang721688/DropDownMenu'//TODO:修改仓库DropDownMenu
+def gitUrl = 'https://github.com/zhang721688/DropDownMenu.git'//TODO:修改仓库DropDownMenu
+def libName = "dropdown-menu"//TODO:修改依赖dropdown-menu
+group = "com.zxn.dropdown"//TODO:修改包名com.zxn.dropdown
 version = "1.0.0"
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -86,7 +86,7 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        repo = "MyExpandLayout"
+        repo = "DropDownMenu"
         name = libName
         desc = 'desc content'
         websiteUrl = siteUrl

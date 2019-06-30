@@ -19,9 +19,10 @@ import java.util.List;
 
 
 /**
- * Created by dongjunkun on 2015/6/17.
+ * DropdownMenu
+ * Updated by zxn on 2019/6/30.
  */
-public class DropDownMenu extends LinearLayout {
+public class DropdownMenu extends LinearLayout {
 
     //顶部菜单布局
     private LinearLayout tabMenuView;
@@ -53,15 +54,15 @@ public class DropDownMenu extends LinearLayout {
     private float menuHeighPercent = 0.5f;
 
 
-    public DropDownMenu(Context context) {
+    public DropdownMenu(Context context) {
         super(context, null);
     }
 
-    public DropDownMenu(Context context, AttributeSet attrs) {
+    public DropdownMenu(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public DropDownMenu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DropdownMenu(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         setOrientation(VERTICAL);
@@ -69,17 +70,17 @@ public class DropDownMenu extends LinearLayout {
         //为DropDownMenu添加自定义属性
         int menuBackgroundColor = 0xffffffff;
         int underlineColor = 0xffcccccc;
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DropDownMenu);
-        underlineColor = a.getColor(R.styleable.DropDownMenu_ddunderlineColor, underlineColor);
-        dividerColor = a.getColor(R.styleable.DropDownMenu_dddividerColor, dividerColor);
-        textSelectedColor = a.getColor(R.styleable.DropDownMenu_ddtextSelectedColor, textSelectedColor);
-        textUnselectedColor = a.getColor(R.styleable.DropDownMenu_ddtextUnselectedColor, textUnselectedColor);
-        menuBackgroundColor = a.getColor(R.styleable.DropDownMenu_ddmenuBackgroundColor, menuBackgroundColor);
-        maskColor = a.getColor(R.styleable.DropDownMenu_ddmaskColor, maskColor);
-        menuTextSize = a.getDimensionPixelSize(R.styleable.DropDownMenu_ddmenuTextSize, menuTextSize);
-        menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuSelectedIcon, menuSelectedIcon);
-        menuUnselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuUnselectedIcon, menuUnselectedIcon);
-        menuHeighPercent = a.getFloat(R.styleable.DropDownMenu_ddmenuMenuHeightPercent,menuHeighPercent);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DropdownMenu);
+        underlineColor = a.getColor(R.styleable.DropdownMenu_ddunderlineColor, underlineColor);
+        dividerColor = a.getColor(R.styleable.DropdownMenu_dddividerColor, dividerColor);
+        textSelectedColor = a.getColor(R.styleable.DropdownMenu_ddtextSelectedColor, textSelectedColor);
+        textUnselectedColor = a.getColor(R.styleable.DropdownMenu_ddtextUnselectedColor, textUnselectedColor);
+        menuBackgroundColor = a.getColor(R.styleable.DropdownMenu_ddmenuBackgroundColor, menuBackgroundColor);
+        maskColor = a.getColor(R.styleable.DropdownMenu_ddmaskColor, maskColor);
+        menuTextSize = a.getDimensionPixelSize(R.styleable.DropdownMenu_ddmenuTextSize, menuTextSize);
+        menuSelectedIcon = a.getResourceId(R.styleable.DropdownMenu_ddmenuSelectedIcon, menuSelectedIcon);
+        menuUnselectedIcon = a.getResourceId(R.styleable.DropdownMenu_ddmenuUnselectedIcon, menuUnselectedIcon);
+        menuHeighPercent = a.getFloat(R.styleable.DropdownMenu_ddmenuMenuHeightPercent, menuHeighPercent);
         a.recycle();
 
         //初始化tabMenuView并添加到tabMenuView
@@ -131,12 +132,12 @@ public class DropDownMenu extends LinearLayout {
         });
         containerView.addView(maskView, 1);
         maskView.setVisibility(GONE);
-        if (containerView.getChildAt(2) != null){
+        if (containerView.getChildAt(2) != null) {
             containerView.removeViewAt(2);
         }
 
         popupMenuViews = new FrameLayout(getContext());
-        popupMenuViews.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (DeviceUtils.getScreenSize(getContext()).y*menuHeighPercent)));
+        popupMenuViews.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (DeviceUtils.getScreenSize(getContext()).y * menuHeighPercent)));
         popupMenuViews.setVisibility(GONE);
         containerView.addView(popupMenuViews, 2);
 
@@ -152,7 +153,7 @@ public class DropDownMenu extends LinearLayout {
         tab.setSingleLine();
         tab.setEllipsize(TextUtils.TruncateAt.END);
         tab.setGravity(Gravity.CENTER);
-        tab.setTextSize(TypedValue.COMPLEX_UNIT_PX,menuTextSize);
+        tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
         tab.setLayoutParams(new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
         tab.setTextColor(textUnselectedColor);
         tab.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
