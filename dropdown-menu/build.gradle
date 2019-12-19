@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 28
-        versionCode 2
-        versionName "1.0.3"
+        versionCode 6
+        versionName "1.0.7"
     }
     buildTypes {
         release {
@@ -29,7 +29,7 @@ def siteUrl = 'https://github.com/zhang721688/DropDownMenu'//TODO:修改仓库Dr
 def gitUrl = 'https://github.com/zhang721688/DropDownMenu.git'//TODO:修改仓库DropDownMenu
 def libName = "dropdown-menu"//TODO:修改依赖dropdown-menu
 group = "com.zxn.dropdown"//TODO:修改包名com.zxn.dropdown
-version = "1.0.3"
+version = "1.0.7"
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'

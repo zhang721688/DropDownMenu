@@ -191,13 +191,18 @@ public class DropdownMenu extends LinearLayout {
 
     /**
      * 恢复最初设置的菜单头.
-     *
      */
     public void recoverMenuTab() {
         //((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
-        if (null != mTabTexts && tabMenuView!= null){
-            for (int i = 0;  i < mTabTexts.size(); i++) {
-                ((TextView) tabMenuView.getChildAt(0)).setText(mTabTexts.get(i));
+        if (null != mTabTexts && tabMenuView != null) {
+            int childIndex = 0;
+            for (int i = 0; i < mTabTexts.size(); i++) {
+                //0,1,2
+                //0,1
+                if (tabMenuView.getChildAt(childIndex) instanceof TextView) {
+                    ((TextView) tabMenuView.getChildAt(childIndex)).setText(mTabTexts.get(i));
+                }
+                childIndex = (i + 2);
             }
         }
     }
