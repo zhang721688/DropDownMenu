@@ -52,6 +52,7 @@ public class DropdownMenu extends LinearLayout {
     private int menuUnselectedIcon;
 
     private float menuHeighPercent = 0.5f;
+    private List<String> mTabTexts;
 
 
     public DropdownMenu(Context context) {
@@ -116,6 +117,7 @@ public class DropdownMenu extends LinearLayout {
             throw new IllegalArgumentException("params not match, tabTexts.size() should be equal popupViews.size()");
         }
 
+        mTabTexts = tabTexts;
         for (int i = 0; i < tabTexts.size(); i++) {
             addTab(tabTexts, i);
         }
@@ -184,6 +186,19 @@ public class DropdownMenu extends LinearLayout {
     public void setTabText(String text) {
         if (current_tab_position != -1) {
             ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
+        }
+    }
+
+    /**
+     * 恢复最初设置的菜单头.
+     *
+     */
+    public void recoverMenuTab() {
+        //((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
+        if (null != mTabTexts && tabMenuView!= null){
+            for (int i = 0;  i < mTabTexts.size(); i++) {
+                ((TextView) tabMenuView.getChildAt(0)).setText(mTabTexts.get(i));
+            }
         }
     }
 
