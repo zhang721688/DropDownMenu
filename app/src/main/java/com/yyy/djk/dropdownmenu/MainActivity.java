@@ -1,7 +1,6 @@
 package com.yyy.djk.dropdownmenu;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -10,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.zxn.dropdown.DropdownMenu;
 
@@ -68,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
 
         //init constellation
         final View constellationView = getLayoutInflater().inflate(R.layout.custom_layout, null);
-        GridView constellation = ButterKnife.findById(constellationView, R.id.constellation);
+        GridView constellation = constellationView.findViewById(R.id.constellation);
         constellationAdapter = new ConstellationAdapter(this, Arrays.asList(constellations));
         constellation.setAdapter(constellationAdapter);
-        TextView ok = ButterKnife.findById(constellationView, R.id.ok);
+        TextView ok = constellationView.findViewById(R.id.ok);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

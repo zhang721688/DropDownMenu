@@ -2,7 +2,6 @@ package com.zxn.dropdown;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -15,6 +14,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,6 +28,7 @@ import java.util.List;
  */
 public class DropdownMenu extends LinearLayout {
 
+    private final static int TAB_ID = 7;
     //顶部菜单布局
     private LinearLayout tabMenuView;
     //底部容器，包含popupMenuViews，maskView
@@ -34,7 +39,6 @@ public class DropdownMenu extends LinearLayout {
     private View maskView;
     //tabMenuView里面选中的tab位置，-1表示未选中
     private int current_tab_position = -1;
-
     //分割线颜色
     private int dividerColor = 0xffcccccc;
     //tab选中颜色
@@ -45,15 +49,12 @@ public class DropdownMenu extends LinearLayout {
     private int maskColor = 0x88888888;
     //tab字体大小
     private int menuTextSize = 14;
-
     //tab选中图标
     private int menuSelectedIcon;
     //tab未选中图标
     private int menuUnselectedIcon;
-
     private float menuHeighPercent = 0.5f;
     private List<String> mTabTexts;
-
 
     public DropdownMenu(Context context) {
         super(context, null);
@@ -168,6 +169,7 @@ public class DropdownMenu extends LinearLayout {
                 switchMenu(tab);
             }
         });
+        tab.setId(TAB_ID + i);
         tabMenuView.addView(tab);
         //添加分割线
         if (i < tabTexts.size() - 1) {
@@ -193,17 +195,9 @@ public class DropdownMenu extends LinearLayout {
      * 恢复最初设置的菜单头.
      */
     public void recoverMenuTab() {
-        //((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
-        if (null != mTabTexts && tabMenuView != null) {
-            int childIndex = 0;
-            for (int i = 0; i < mTabTexts.size(); i++) {
-                //0,1,2
-                //0,1
-                if (tabMenuView.getChildAt(childIndex) instanceof TextView) {
-                    ((TextView) tabMenuView.getChildAt(childIndex)).setText(mTabTexts.get(i));
-                }
-                childIndex = (i + 2);
-            }
+        for (int i = 0; mTabTexts != null && i < mTabTexts.size(); i++) {
+            TextView tab = tabMenuView.findViewById(TAB_ID + i);
+            tab.setText(mTabTexts.get(i));
         }
     }
 
